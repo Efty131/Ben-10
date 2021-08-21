@@ -10,13 +10,13 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 0.5fr 1fr 1fr;
     grid-template-rows: 0.4fr 1.5fr 1.5fr .3fr;
     height: 100vh;
     grid-template-areas:
         "nav nav nav nav"
         "sidebar main main main"
-        "sidebar left right right"
+        "sidebar right right right"
         "footer footer footer footer";
 }
 
@@ -25,8 +25,6 @@ nav {
     background-color: rgb(0, 0, 0);
     grid-area: nav;
     display: flex;
-
-
 }
 
 nav .logo {
@@ -35,8 +33,25 @@ nav .logo {
 }
 
 nav div {
-    padding: 10px;
+    padding: 20px;
+}
+
+nav .links {
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+nav .links a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.8;
 }
 
 nav .links {
@@ -52,20 +67,19 @@ nav .links {
     font-size: 30px;
     padding: 20px;
     color: white;
-
+    transform: scale(1);
+    transition: all 0.4s;
 }
 
 nav .links a:hover {
     color: rgb(0, 0, 0);
-    background-color: rgb(13, 255, 45);
-    transition: all ease-in-out 0.3s;
+    background-color: greenyellow;
+    transform: scale(1.2);
+    transition: all ease-in-out 0.4s;
 }
 
-
-
 .links a i {
-    font-size: 50px;
-    display:
+    font-size: 3rem;
 }
 
 /* navbar end*/
@@ -138,8 +152,6 @@ main h1 {
     color: white;
 }
 
-
-
 .icon i {
     color: rgb(255, 255, 255);
     background-color: rgb(151, 149, 149);
@@ -151,18 +163,17 @@ main h1 {
 .card1 div {}
 
 /*MAIN END*/
+
+/*SIDEBAR START*/
 .sidebar {
     grid-area: sidebar;
     background: tomato;
 }
 
-.left {
-
-    grid-area: left;
-    background: gold;
-}
+/*SIDEBAR END*/
 
 .right {
+    width: 100%;
     grid-area: right;
     background: greenyellow;
     display: flex;
@@ -187,7 +198,7 @@ main h1 {
     }
 
     100% {
-        transform: perspective(1000px) rotate(360deg);
+        transform: perspective(1000px) rotateY(360deg);
     }
 }
 
@@ -199,7 +210,8 @@ main h1 {
     height: 100%;
     transform-origin: center;
     transform-style: preserve-3d;
-    transform: rotate(calc(var(--i) * 45deg)) translateZ(400px);
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004);
 }
 
 .box span img {
@@ -232,6 +244,7 @@ footer h3 {
 
 footer p {
     text-align: center;
+    font-size: 20px;
 }
 
 footer span {
