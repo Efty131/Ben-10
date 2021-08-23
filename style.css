@@ -17,7 +17,7 @@ body {
     grid-template-areas:
         "nav nav nav nav"
         "sidebar main main main"
-        "sidebar right right right"
+        "right right right right"
         "footer footer footer footer";
 }
 
@@ -53,6 +53,8 @@ nav .links a {
     flex-direction: column;
     align-items: center;
     line-height: 0.8;
+    transform: scale(1);
+    transition: all 0.4s;
 }
 
 nav .links {
@@ -61,15 +63,6 @@ nav .links {
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
-}
-
-.links a {
-    text-decoration: none;
-    font-size: 30px;
-    padding: 20px;
-    color: white;
-    transform: scale(1);
-    transition: all 0.4s;
 }
 
 nav .links a:hover {
@@ -172,37 +165,30 @@ main h1 {
 /*MAIN END*/
 
 /*SIDEBAR START*/
-.sidebar {
-    grid-area: sidebar;
-    background-color: rgb(129, 189, 129);
-    min-height: 500px;
-    background: greenyellow;
+.sidebar{
+    width: 320px;
+    height: 100%;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #444cf755, #444cf7 );
+    display: flex;
+    flex-direction: column;
+    justify-content:;
+    align-items: ;
+    
 }
-
-.sidebar video {
+.sidebar video{
+    margin: 5px;
     width: 300px;
     height: auto;
+    border: 3px dashed rgb(7, 143, 3);
+}
+.sidebar h3{
+    margin: 10px;
 }
 
-.sidebar .v1 {
-    border: 3px rgb(58, 242, 255);
-    border-style: dashed;
-    height: 169px;
-}
-
-.sidebar .v2 {
-    border: 3px rgb(100, 233, 107);
-    border-style: dashed;
-    height: 169px;
-}
-
-.sidebar .s1 {
-    width: auto;
-    height: auto;
-    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
-}
 
 /*SIDEBAR END*/
+
+/*right start*/
 
 .right {
     width: 100%;
@@ -255,6 +241,7 @@ main h1 {
     object-fit: cover;
 }
 
+/*right end*/
 
 /*FOOTER START*/
 footer {
@@ -346,16 +333,31 @@ footer span {
 
 /*FOOTER END*/
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
     .container {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 2fr 4fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 4fr 4fr 1fr 1fr;
         grid-template-areas: "nav"
             "sidebar"
             "main"
-            "left"
             "right"
             "footer";
     }
+    .sidebar{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    
+    
+    .sidebar video{
+        width: 300px;
+        align-items: center;
+    }
+    
 }
